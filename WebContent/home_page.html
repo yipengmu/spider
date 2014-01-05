@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+	function showMsg(msg){	
+		var uid = document.getElementById('toast_msg');
+		uid.innerHTML = msg;
+	}
+	
+	function doOnIDBlur(){
+		showMsg('check for id');
+	}
+	
+	function doOnPSWBlur(){
+		
+		showMsg('check for psw');
+	}
+	
+	function checkNull(value){
+		return value;
+	}
+	
+	function doOnLogin(){		
+		var uid = document.getElementById('uid');
+		var upsw = document.getElementById('upsw');
+		
+       var successMsg =   '<font style="color:#6F0">登录成功</font>';
+       var failedMsg =   '<font style="color:#F00">登录失败</font>';
+	
+		if( checkNull(uid.value) && checkNull(upsw.value)){
+			showMsg(successMsg.toString());
+		 }else{
+			showMsg(failedMsg.toString());
+		 }
+		
+}
+	
+	function doOnLogout(){
+		var uid = document.getElementById('uid');
+		var upsw = document.getElementById('upsw');
+		uid.value = '';
+		upsw.value = '';
+		showMsg('注销成功');
+	}
+	
+	function refreshPage(){
+			window.location.reload();
+	}
+	
+</script>
+<style type="text/css">
+<!--
+.section {
+	border:1px #360 solid;
+	
+}
+
+a{
+color:black;　　/*这是默认*/
+}
+a:hover{
+color:#360;  /*这是鼠标经过*/
+text-decoration:underline;  /*鼠标放上去有下划线*/
+}
+a:active{
+color:black;   /*这是鼠标点击后*/
+
+}
+-->
+</style>
+</head>
+<body>
+<div id="head">
+  <h1><a style="hov" onclick="refreshPage()">Home page</a></h1>
+</div>
+<hr />
+<div id="subTitle">
+  <h2>Andrew demo 选股比赛 <br>
+  </h2>
+</div>
+<hr />
+<form id="main_form" action="http://www.taobao.com">
+  <table border="0" width="100%"  >
+    <tr>
+      <td style="width:30%;" ><div class="section" > <br>
+          <table>
+            <tr>
+              <div  class="section"> 周 选股比赛<br>
+               本期开奖:	10/28/2013 - 11/1/2013  <a onclick="refreshPage()"> (更新)</a><br>
+               当前结果:	   <a href="http://finance.qq.com/stock/" style="width:200px">51  50  49  48  47  46</a><br>
+               历史汇总：  <a href="http://stockhtm.finance.qq.com/hqing/zhishu/000001.htm" style="width:200px">历界前3名|积分和段位</a><br>
+               个人历史：  <a href="http://stockhtm.finance.qq.com/hqing/zhishu/000002.htm" style="width:200px">历界前3名|积分和段位</a><br>
+              </div>
+            </tr>
+            <br>
+            <tr>
+              <div  class="section"> 月 选股比赛 <br>
+                第10届	10/1/2013 - 10/31/2013 <a onclick="refreshPage()"> (更新)</a><br>
+                历史结果: <a href="http://www.taobao.com" style="width:200px">9  8  7  6  5  4  3  2 </a><br>
+                历史汇总:<a href="http://www.baidu.com" style="width:200px">9  8  7  6  5  4  3  2 </a><br>
+                历界最高:<a href="http://www.qq.com" style="width:200px">历界前3名|积分和段位  查询个人历史 </a><br>
+              </div>
+            </tr>
+          </table>
+        </div></td>
+      <td ><div class="section">大盘走势<br>
+          <img src="http://finviz.com/image.ashx?sp500"/><br />
+          <img src="http://finviz.com/image.ashx?dow"/><br />
+          <img src="http://finviz.com/image.ashx?nasdaq"/><br />
+        </div></td>
+      <td align="center"><div class="section">用户中心<br>
+          ID:
+          <input name="" type="text" id="uid" />
+          <br>
+          Password:
+          <input name="" type="text" id="upsw"/>
+          <br>
+          <input name=""  value="login" type="button" id="btn_login"  onclick="doOnLogin()"/>
+          <input name=""  value="logout" type="button" id="btn_logout"  onclick="doOnLogout()"/>
+          <div id="toast_msg" />
+        </div></td>
+    </tr>
+  </table>
+  </div>
+  <hr />
+</form>
+<div id="foot" align="center">footer：www.andrew.com </div>
+</body>
+</html>
